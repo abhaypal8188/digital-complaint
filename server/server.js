@@ -49,9 +49,13 @@ app.use('/api/complaints', complaintRoutes);
 app.use('/api/complaints/:complaintId/comments', commentRoutes);
 app.use('/api/notifications', notificationRoutes);
 
-// Basic Route
+// Basic Routes
 app.get('/', (req, res) => {
   res.send('Digital Complaint Portal API is running');
+});
+
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'success', message: 'API is healthy and connected!' });
 });
 
 const PORT = process.env.PORT || 5000;
